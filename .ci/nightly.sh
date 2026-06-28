@@ -5,7 +5,7 @@ MESON_OPTS_COMMON="--auto-features=enabled --fatal-meson-warnings \
 
 MESON_OPTS="$MESON_OPTS_COMMON \
     -Dgame-build-options=optimization=s,b_lto=true \
-    -Dsdl2=disabled -Dwayland=disabled -Dx11=disabled"
+    -Dsdl3=disabled -Dwayland=disabled -Dx11=disabled"
 
 SRC_DIR=`pwd`
 CI=$SRC_DIR/.ci

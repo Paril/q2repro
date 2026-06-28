@@ -121,10 +121,10 @@ option('save-games',
   value: true,
   description: 'Server side support for savegames')
 
-option('sdl2',
+option('sdl3',
   type: 'feature',
   value: 'auto',
-  description: 'SDL2 video and audio drivers')
+  description: 'SDL3 video and audio drivers')
 
 option('software-sound',
   type: 'feature',

@@ -32,7 +32,7 @@ env:
   MESON_ARGS_LINUX: >-
     -Dwrap_mode=nofallback
     --force-fallback-for=fmt,jsoncpp,ffmpeg
-    -Dsdl2=enabled
+    -Dsdl3=enabled
     -Dwayland=enabled
     -Dx11=enabled
 
@@ -151,7 +151,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ninja-build libsdl2-dev libopenal-dev \
+          sudo apt-get install -y ninja-build libsdl3-dev libopenal-dev \
           libpng-dev libjpeg-dev zlib1g-dev mesa-common-dev \
           libcurl4-gnutls-dev libx11-dev libxi-dev \
           libwayland-dev wayland-protocols libdecor-0-dev
@@ -194,7 +194,7 @@ jobs:
       - name: Install dependencies
         run: |
           brew update
-          brew install meson sdl2 openal-soft libpng jpeg-turbo
+          brew install meson sdl3 openal-soft libpng jpeg-turbo
 
       - name: Build - meson setup
         run: |
@@ -225,7 +225,7 @@ jobs:
           run: |
             sudo pkg update
             sudo pkg install -y git meson pkgconf nasm python \
-            sdl2 curl png jpeg-turbo libX11 libdecor evdev-proto wayland-protocols
+            sdl3 curl png jpeg-turbo libX11 libdecor evdev-proto wayland-protocols
             meson setup ${{ env.MESON_ARGS }} ${{ env.MESON_ARGS_FREEBSD }} builddir
             meson configure builddir
             meson compile -C builddir

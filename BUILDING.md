@@ -4,10 +4,10 @@ Prerequisities
 Q2PRO can be built on Linux, BSD and similar platfroms using a recent version
 of GCC or Clang.
 
-Q2PRO client requires either SDL2 or OpenAL for sound output. For video output,
-native X11 and Wayland backends are available, as well as generic SDL2 backend.
+Q2PRO client requires either SDL3 or OpenAL for sound output. For video output,
+native X11 and Wayland backends are available, as well as generic SDL3 backend.
 
-Note that SDL2 is optional if using native X11 and Wayland backends and OpenAL,
+Note that SDL3 is optional if using native X11 and Wayland backends and OpenAL,
 which is preferred configuration.
 
 Both client and dedicated server require zlib support for full compatibility at
@@ -25,7 +25,7 @@ strongly recommended).
 To install the *full* set of dependencies for building Q2PRO on Debian or
 Ubuntu use the following command:
 
-    apt-get install meson gcc libc6-dev libsdl2-dev libopenal-dev \
+    apt-get install meson gcc libc6-dev libsdl3-dev libopenal-dev \
                     libpng-dev libjpeg-dev zlib1g-dev mesa-common-dev \
                     libcurl4-gnutls-dev libx11-dev libxi-dev \
                     libwayland-dev wayland-protocols libdecor-0-dev \

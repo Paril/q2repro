@@ -431,14 +431,14 @@ if curl.found()
   config.set10('USE_CURL', true)
 endif
 
-sdl2 = dependency('sdl2', required: get_option('sdl2'))
-if sdl2.found()
+sdl3 = dependency('sdl3', required: get_option('sdl3'))
+if sdl3.found()
   client_src += 'src/unix/video/sdl.c'
   config.set('USE_SDL', 'USE_CLIENT')
 endif
 
 common_deps = [zlib]
-client_deps = [png, curl, sdl2]
+client_deps = [png, curl, sdl3]
 server_deps = []
 game_deps = [zlib]
 
@@ -584,9 +584,9 @@ if get_option('client-ui')
   config.set10('USE_UI', true)
 endif
 
-if get_option('software-sound').require(win32 or sdl2.found()).allowed()
+if get_option('software-sound').require(win32 or sdl3.found()).allowed()
   client_src += 'src/client/sound/dma.c'
-  if sdl2.found()
+  if sdl3.found()
     client_src += 'src/unix/sound/sdl.c'
   endif
   config.set10('USE_SNDDMA', true)
@@ -772,7 +772,7 @@ summary({
   'openal'             : config.get('USE_OPENAL', 0) != 0,
   'packetdup-hack'     : config.get('USE_PACKETDUP', 0) != 0,
   'save-games'         : config.get('USE_SAVEGAMES', 0) != 0,
-  'sdl2'               : config.get('USE_SDL', '') != '',
+  'sdl3'               : config.get('USE_SDL', '') != '',
   'software-sound'     : config.get('USE_SNDDMA', 0) != 0,
   'system-console'     : config.get('USE_SYSCON', 0) != 0,
   'tests'              : config.get('USE_TESTS', 0) != 0,

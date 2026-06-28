@@ -44,7 +44,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 #if USE_SDL
-#include <SDL.h>
+#include <SDL3/SDL.h>
 #endif
 
 #if USE_CLIENT

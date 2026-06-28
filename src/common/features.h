@@ -74,7 +74,7 @@ static const char *Com_GetFeatures(void)
     "save-games "
 #endif
 #if USE_SDL
-    "sdl2 "
+    "sdl3 "
 #endif
 #if USE_SNDDMA
     "software-sound "

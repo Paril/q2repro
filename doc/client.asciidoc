@@ -343,7 +343,7 @@ s_driver::
     available at the same time, depending on how client was compiled):
       - dsound — DirectSound
       - wave — Windows waveform audio
-      - sdl — SDL2 audio
+      - sdl — SDL3 audio
 
 al_device::
     Specifies the name of OpenAL device to use. Format of this value depends on
@@ -628,7 +628,7 @@ vid_driver::
       - win32egl — OpenGL ES 3.0+ via third-party libEGL.dll (e.g. ANGLE)
       - wayland — native Wayland
       - x11 — native X11
-      - sdl — SDL2 video driver
+      - sdl — SDL3 video driver
 
 .Setting video modes
 ====================
