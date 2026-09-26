@@ -522,7 +522,8 @@ static void configure_event(XConfigureEvent *event)
     x11.rc.y = event->y;
     x11.rc.width = event->width;
     x11.rc.height = event->height;
-    if (!(x11.flags & QVF_FULLSCREEN))
+    // The fullscreen state property may lag behind the initial ConfigureNotify.
+    if (!(x11.flags & QVF_FULLSCREEN) && !vid_fullscreen->integer)
         VID_SetGeometry(&x11.rc);
     mode_changed();
     x11.configured = true;
