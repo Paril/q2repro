@@ -859,6 +859,36 @@ void CM_TransformedBoxTrace(trace_t *trace,
     VectorSubtract(start, origin, start_l);
     VectorSubtract(end, origin, end_l);
 
+    /* Why are rotations disabled for the box hull?
+     * Short answer: Enabling rotation would negatively affects monster and player movement.
+     *
+     * Longer answer, paraphrased from an explanation by Paril:
+     * You don't want bboxes to rotate; not only do they not contain bevels
+     * which are required for angular collision, it would mean if you pressed
+     * up against a wall facing axially and turned, you'd suddenly intersect
+     * the wall.
+     * (The additional bevel planes are required to accomodate AABB collision as well:
+     * if you don't add the bevels for a, say, 45 degree rotated box, the collision won't
+     * work properly; there'll be no flat plane for you to press up against on the points,
+     * you'd slide off in either direction and it'd act weird.)
+     *
+     * If one would want to enable rotation for static objects, there's no real
+     * reason why you couldn't, except for the bevels.
+     * You would need to bring the QBSP bevel plane generation code into the code,
+     * and that also means that the box hull would now contain a variable number of
+     * planes, because the number of extra planes you get depends on the rotation.
+     * Then you could totally have a static object, rotated, and collide against it
+     * like you compiled a map with a box and rotated it; leaving the bevels out, you
+     * could get more "precise" hitscans that actually account for rotation instead
+     * of them always being axial - eg if you had a giant box enemy for some reason,
+     * you'd have accurate hits against it ... but you'd stick against it if you
+     * tried to move near it.
+     * (A moving object really can't rotate without causing intersections, though.)
+     *
+     * Looking even further, Doom 3's system actually does support doing "rotational traces"
+     * in addition to translation (which is what the BoxTrace stuff is in Q2),
+     * but that system uses the impossible-to-understand rigid body system.
+     */
     // rotate start and end into the models frame of reference
     rotated = headnode != box_headnode && !VectorEmpty(angles);
     if (rotated) {
