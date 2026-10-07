@@ -22,6 +22,7 @@ env:
     -Dopenal=enabled
     -Dopenal-soft:werror=false
     -Dsdl3:default_library=static
+    -Dsdl3:werror=false
     -Dsoftware-sound=enabled
     -Dzlib=enabled
 
