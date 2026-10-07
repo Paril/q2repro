@@ -31,7 +31,7 @@ env:
 
   MESON_ARGS_LINUX: >-
     -Dwrap_mode=nofallback
-    --force-fallback-for=fmt,jsoncpp,ffmpeg
+    --force-fallback-for=fmt,jsoncpp,ffmpeg,sdl3
     -Dsdl3=enabled
     -Dwayland=enabled
     -Dx11=enabled
