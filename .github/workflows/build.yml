@@ -221,11 +221,11 @@ jobs:
           submodules: true
 
       - name: Build
-        uses: cross-platform-actions/action@v1.4.0
+        uses: cross-platform-actions/action@v1.7.0
         with:
           operating_system: freebsd
           architecture: x86-64
-          version: '14.4'
+          version: '14.5'
           run: |
             sudo pkg update
             sudo pkg install -y git meson pkgconf nasm python \
